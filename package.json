@@ -9,6 +9,7 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "dot": "^1.1.2"
+    "dot": "^1.1.2",
+    "gulp-zetzer": "^1.0.4"
   }
 }

@@ -1,0 +1,21 @@
+<!doctype html>
+<html>
+	<head>
+		<head>
+			<meta charset="utf-8">
+			<title>{{= it.document.title }}</title>
+			<meta name="viewport" content="width=device-width, initial-scale=1">
+			<script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+			<style>
+			</style>
+			<script>
+				$(function() {
+					//add code here...
+				});
+			</script>
+	</head>
+	<body>
+		{{= it.include("nav.html", {"id": it.document.id}) }}
+		{{# partial.contentMain }}
+	</body>
+</html>
