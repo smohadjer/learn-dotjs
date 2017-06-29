@@ -1,5 +1,6 @@
 var gulp = require('gulp');
 var zetzer = require('gulp-zetzer');
+var watch = require('gulp-watch');
 
 gulp.task('zetzer', function(){
    gulp.src('./app/*.html')
@@ -15,3 +16,9 @@ gulp.task('zetzer', function(){
        }))
        .pipe(gulp.dest('./dist'));
 });
+
+gulp.task('watch', function() {
+	gulp.watch(['app/*.html', 'app/partials/**/*.html', 'app/layouts/**/*.html'], ['zetzer']);
+});
+
+gulp.task('serve', ['zetzer', 'watch']);

@@ -1,14 +1,9 @@
 {
-	"title": "Home",
-	"id": "home",
+	"title": "Homepage",
+	"pageId": "homepage",
 	"template": "layout.html"
 }
 
-
-<!-- DEV NOTE: IMPORTANT!! The two empty lines after this header block are required to separate the header from template content. DO NOT REMOVE THEM! -->
-
-<!-- bind all template specific partials to global variables for usage in the layout file -->
 {{# partial = {} }}
-
-{{## def.contentMain: {{= it.include("content.html") }} #}}
-{{# partial.contentMain = def.contentMain }}
+{{## def.content: {{= it.include("content.html") }} #}}
+{{# partial.content = def.content }}

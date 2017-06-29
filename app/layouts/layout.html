@@ -3,19 +3,31 @@
 	<head>
 		<head>
 			<meta charset="utf-8">
-			<title>{{= it.document.title }}</title>
+			<title>{{= it.document.title || "Default Title" }}</title>
 			<meta name="viewport" content="width=device-width, initial-scale=1">
 			<script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
 			<style>
 			</style>
 			<script>
 				$(function() {
-					//add code here...
+					// 1. Compile template function
+					var tempFn = doT.template("<h1>Here is a sample template {{=it.foo}}</h1>");
+					// 2. Use template function as many times as you like
+					var resultText = tempFn({foo: 'with doT'});
+
+					console.log(resultText);
 				});
 			</script>
 	</head>
 	<body>
-		{{= it.include("nav.html", {"id": it.document.id}) }}
-		{{# partial.contentMain }}
+		<!-- two differents methods of geting pageId as example -->
+		{{? it.document.pageId }}
+		{{= it.include("nav.html", {"id": it.document.pageId}) }}
+		{{??}}
+		{{= it.include("nav.html", {"id": partial.pageId}) }}
+		{{?}}
+
+		{{# partial.content }}
+		<script type="text/javascript" src="./../node_modules/dot/doT.js"></script>
 	</body>
 </html>
